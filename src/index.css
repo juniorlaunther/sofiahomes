@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-purple: #7E22CE;
+  --color-brand-dark: #000000;
+  --color-brand-light: #FFFFFF;
+}
+
+body {
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Custom selection color to match brand */
+::selection {
+  background-color: var(--color-brand-purple);
+  color: var(--color-brand-light);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-purple);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 34, 206, 0.8);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-purple) var(--color-brand-light);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-pulse-color {
+    animation: pulseColor 4s infinite ease-in-out;
+  }
+  .mobile-pulse-text {
+    animation: pulseText 4s infinite ease-in-out;
+  }
+  .mobile-pulse-bg {
+    animation: pulseBg 4s infinite ease-in-out;
+  }
+}
+
+@keyframes pulseColor {
+  0%, 100% { color: rgba(126, 34, 206, 0.2); }
+  50% { color: rgba(126, 34, 206, 1); }
+}
+
+@keyframes pulseText {
+  0%, 100% { color: var(--color-brand-dark); }
+  50% { color: var(--color-brand-purple); }
+}
+
+@keyframes pulseBg {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(126, 34, 206, 0.05); }
+}
+
+@keyframes pulseInnerGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 2px rgba(126, 34, 206, 0.2));
+    text-shadow: 0 0 4px rgba(126, 34, 206, 0.2);
+  }
+  50% { 
+    filter: drop-shadow(0 0 8px rgba(126, 34, 206, 0.8));
+    text-shadow: 0 0 15px rgba(126, 34, 206, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseInnerGlow 3s infinite ease-in-out;
+}
+
+.animate-pulse-text {
+  animation: pulseText 4s infinite ease-in-out;
+}
+
+@keyframes continuousScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-continuous-scale {
+  animation: continuousScale 2s infinite ease-in-out;
+}

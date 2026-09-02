@@ -1,0 +1,6 @@
+{
+  "name": "Imersão de Conteúdo | A Casa do Ju",
+  "description": "Uma proposta de criação intensiva que transforma a experiência de viver o espaço em conteúdos de lifestyle e entretenimento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
