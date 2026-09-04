@@ -73,15 +73,17 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="relative z-10 flex flex-col items-center gap-1 md:gap-2 pb-6 md:pb-10 mt-auto hover:opacity-80 transition-opacity"
+        className="relative z-10 flex flex-col items-center pb-6 md:pb-10 mt-auto"
       >
-        <span className="text-xs uppercase tracking-widest text-brand-light/50 font-bold">Ver Proposta</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <ArrowDown className="w-5 h-5 text-brand-purple" />
-        </motion.div>
+        <div className="flex items-center justify-center gap-3 bg-brand-purple text-brand-light px-6 md:px-8 py-3 md:py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-brand-purple/80 transition-colors cursor-pointer group">
+          Ver Proposta
+          <motion.span
+            animate={{ y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <ArrowDown className="w-4 h-4 text-brand-light group-hover:text-white transition-colors" />
+          </motion.span>
+        </div>
       </motion.a>
     </section>
   );
