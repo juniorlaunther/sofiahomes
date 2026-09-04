@@ -5,12 +5,14 @@ export function FadeIn({
   children, 
   delay = 0, 
   className = "",
-  direction = "up"
+  direction = "up",
+  viewportMargin = "-10%"
 }: { 
   children: React.ReactNode, 
   delay?: number, 
   className?: string,
-  direction?: "up" | "down" | "left" | "right" | "none"
+  direction?: "up" | "down" | "left" | "right" | "none",
+  viewportMargin?: string
 }) {
   
   const getInitial = () => {
@@ -37,7 +39,7 @@ export function FadeIn({
     <motion.div
       initial={getInitial()}
       whileInView={getAnimate()}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, margin: viewportMargin as any }}
       transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >

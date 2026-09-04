@@ -1,7 +1,7 @@
 import { FadeIn } from "../components/AnimatedText";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useState } from "react";
-import { ArrowUpRight, ChevronDown, Asterisk, Users, Sparkles, Video, Camera, HandHeart, Image, Instagram, Youtube, Facebook } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Asterisk, Users, Sparkles, Video, Camera, HandHeart, Image, Instagram, Youtube, Facebook, Mail } from "lucide-react";
 
 function TiktokIcon(props: any) {
   return (
@@ -50,10 +50,10 @@ function ExpandableTopic({ title, desc, delay, isLight = false }: { title: strin
 
 export function CasaDoJu() {
   const stats = [
-    { value: "+170mil", label: "seguidores", icon: Instagram },
-    { value: "+23mil", label: "inscritos", icon: Youtube },
-    { value: "+70mil", label: "seguidores", icon: TiktokIcon },
-    { value: "+106mil", label: "seguidores", icon: Facebook },
+    { value: "+170mil", label: "seguidores", icon: Instagram, url: "https://www.instagram.com/acasadoju" },
+    { value: "+23mil", label: "inscritos", icon: Youtube, url: "https://www.youtube.com/juniorlaunther" },
+    { value: "+70mil", label: "seguidores", icon: TiktokIcon, url: "https://www.tiktok.com/@acasadoju" },
+    { value: "+106mil", label: "seguidores", icon: Facebook, url: "https://www.facebook.com/acasadoju" },
   ];
 
   return (
@@ -70,9 +70,9 @@ export function CasaDoJu() {
               {/* Mobile Image - Shown after title on mobile, hidden on desktop */}
               <div className="w-full relative mb-8 lg:hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" 
+                  src="https://arquivos-elencodigital.s3.sa-east-1.amazonaws.com/imagens/elenco/cd7718e1-413f-45e6-939e-8e9c6c0d785f.jpg" 
                   alt="A Casa do Ju" 
-                  className="w-full aspect-video object-cover grayscale transition-all duration-700"
+                  className="w-full aspect-square object-cover grayscale transition-all duration-700"
                 />
               </div>
 
@@ -92,13 +92,13 @@ export function CasaDoJu() {
                 return (
                   <div key={i} className="w-full flex justify-center lg:justify-start">
                     <FadeIn delay={i * 0.1} className="w-full">
-                      <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
+                      <a href={stat.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center lg:items-start text-center lg:text-left w-full group cursor-pointer hover:opacity-80 transition-opacity">
                         <div className="flex items-center justify-center lg:justify-start gap-2 text-brand-purple mb-1 md:mb-2 w-full">
                           <Icon className="w-5 h-5 flex-shrink-0" />
                           <span className="text-xl md:text-3xl font-serif">{stat.value}</span>
                         </div>
                         <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-brand-dark/60">{stat.label}</span>
-                      </div>
+                      </a>
                     </FadeIn>
                   </div>
                 );
@@ -110,7 +110,7 @@ export function CasaDoJu() {
           <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0 hidden lg:block">
             <FadeIn direction="left">
               <img 
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" 
+                src="https://arquivos-elencodigital.s3.sa-east-1.amazonaws.com/imagens/elenco/cd7718e1-413f-45e6-939e-8e9c6c0d785f.jpg" 
                 alt="A Casa do Ju" 
                 className="w-full aspect-[4/3] md:aspect-video lg:aspect-[4/3] object-cover grayscale md:hover:grayscale-0 transition-all duration-700"
               />
@@ -126,7 +126,7 @@ export function Proposal() {
   const scope = [
     {
       title: "PERÍODO DE IMERSÃO",
-      desc: "7 dias consecutivos.",
+      desc: "7 dias consecutivos em setembro",
       icon: Asterisk
     },
     {
@@ -167,7 +167,7 @@ export function Proposal() {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-brand-dark text-brand-light px-6 relative overflow-hidden">
+    <section id="proposal" className="py-16 md:py-24 lg:py-32 bg-brand-dark text-brand-light px-6 relative overflow-hidden">
       {/* Decorative rich background elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-dark via-[#1a1525] to-brand-purple/20 pointer-events-none"></div>
       <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-brand-purple/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none"></div>
@@ -183,9 +183,26 @@ export function Proposal() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
               Uma primeira <span className="italic text-brand-purple drop-shadow-md">Imersão de Conteúdo</span> <br className="hidden md:block"/>dentro da cobertura.
             </h2>
-            <p className="text-base md:text-lg text-brand-light/80 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-brand-light/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Para explorar todo o potencial da experiência e permitir que diferentes histórias aconteçam naturalmente dentro do espaço, a proposta é realizar uma imersão criativa integral no apartamento.
             </p>
+
+            <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-purple/20 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0914] via-[#0d0914]/40 to-transparent z-10 pointer-events-none"></div>
+              <img 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdkoTVOnjylGn_6QxW0uIqUqOtYB1tNVqb1ijHUv92KklNvWWVctoWgQ3FAxSNY0rh0-jPN5vVLykBfglq-korZS6CoiAY4Roy8YtSyjndfmREiG8iD6iKkfH9oW5n9ulfjq06POlDlnHW9vDg_n5QAI_rsECmo_axFhLn6bcQBUfTfdKnCHaw-2N83FI/s1600/A.cozinha.png" 
+                alt="Nova Cobertura Duplex Cambuí Campinas" 
+                className="w-full aspect-[16/9] md:aspect-[21/9] object-cover group-hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 z-20 text-left">
+                <span className="inline-block bg-brand-purple text-brand-light px-3 py-1.5 rounded-sm text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold mb-3 shadow-md">
+                  Imóvel Selecionado
+                </span>
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-serif text-brand-light leading-tight drop-shadow-xl">
+                  Nova Cobertura Duplex<br />Cambuí, Campinas
+                </h3>
+              </div>
+            </div>
           </FadeIn>
         </div>
         
@@ -204,9 +221,13 @@ export function Proposal() {
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] aspect-square bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_75%,#8A4FFF_100%)] origin-center"
                       />
                       <div className="h-full flex flex-col p-6 md:p-8 rounded-2xl bg-[#0d0914] relative z-10 text-left w-full">
-                        <div className="w-12 h-12 rounded-full bg-brand-purple/20 border border-brand-purple/30 flex items-center justify-center mb-6 text-brand-purple group-hover:scale-110 transition-transform duration-500 relative z-10">
+                        <motion.div 
+                          animate={{ y: [0, -12, 0] }}
+                          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", delay: i * 0.15 }}
+                          className="w-12 h-12 rounded-full bg-brand-purple/20 border border-brand-purple/30 flex items-center justify-center mb-6 text-brand-purple group-hover:scale-110 group-hover:bg-brand-purple/30 transition-all duration-500 relative z-10"
+                        >
                           <item.icon className="w-5 h-5" />
-                        </div>
+                        </motion.div>
                         
                         <h4 className="text-xl md:text-2xl font-serif mb-3 text-brand-light group-hover:text-brand-purple transition-colors duration-300 relative z-10">
                           {item.title}
@@ -220,9 +241,13 @@ export function Proposal() {
                     <div className="h-full flex flex-col p-6 md:p-8 rounded-2xl bg-gradient-to-br from-brand-light/5 to-transparent border border-brand-light/10 hover:border-brand-purple/40 transition-colors duration-500 group relative overflow-hidden text-left">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-purple/20 transition-all duration-500"></div>
                       
-                      <div className="w-12 h-12 rounded-full bg-brand-purple/20 border border-brand-purple/30 flex items-center justify-center mb-6 text-brand-purple group-hover:scale-110 transition-transform duration-500 relative z-10">
+                      <motion.div 
+                        animate={{ y: [0, -12, 0] }}
+                        transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", delay: i * 0.15 }}
+                        className="w-12 h-12 rounded-full bg-brand-purple/20 border border-brand-purple/30 flex items-center justify-center mb-6 text-brand-purple group-hover:scale-110 group-hover:bg-brand-purple/30 transition-all duration-500 relative z-10"
+                      >
                         <item.icon className="w-5 h-5" />
-                      </div>
+                      </motion.div>
                       
                       <h4 className="text-xl md:text-2xl font-serif mb-3 text-brand-light group-hover:text-brand-purple transition-colors duration-300 relative z-10">
                         {item.title}
@@ -302,15 +327,18 @@ export function Ending() {
 
         <FadeIn delay={0.2}>
           <div className="text-lg md:text-xl lg:text-2xl font-serif italic mb-12 md:mb-16 border-b border-white/20 pb-4 md:pb-6 px-4 md:px-12 inline-block">
-            A Casa do Ju &times; [Nome do Proprietário]
+            A Casa do Ju &times; Sofia Homes
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.4}>
-          <motion.button
+        <FadeIn delay={0.4} viewportMargin="0px">
+          <motion.a
+            href="https://api.whatsapp.com/send?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20proposta%20da%20Casa%20do%20Ju"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group flex items-center justify-center gap-4 bg-brand-dark text-brand-light px-8 md:px-12 lg:px-16 py-4 md:py-5 text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-black transition-colors rounded-none w-full sm:w-auto animate-continuous-scale"
+            className="group flex items-center justify-center gap-4 bg-brand-dark text-brand-light px-8 md:px-12 lg:px-16 py-4 md:py-5 text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-black transition-colors rounded-none w-full sm:w-auto animate-continuous-scale cursor-pointer"
           >
             Vamos Conversar
             <motion.span
@@ -319,9 +347,40 @@ export function Ending() {
             >
               <ArrowUpRight className="w-5 h-5 text-brand-purple group-hover:text-white transition-colors" />
             </motion.span>
-          </motion.button>
+          </motion.a>
         </FadeIn>
       </div>
+
+      {/* Footer Elements */}
+      <FadeIn delay={0.6} className="w-full mt-24 pt-12 border-t border-white/10 relative z-10 flex flex-col items-center gap-8">
+        <div className="flex gap-6">
+          <a href="https://www.instagram.com/acasadoju" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors" aria-label="Instagram">
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href="https://www.tiktok.com/@acasadoju" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors" aria-label="TikTok">
+            <TiktokIcon className="w-6 h-6 fill-current" />
+          </a>
+          <a href="https://www.youtube.com/juniorlaunther" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors" aria-label="YouTube">
+            <Youtube className="w-6 h-6" />
+          </a>
+          <a href="https://www.facebook.com/acasadoju" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors" aria-label="Facebook">
+            <Facebook className="w-6 h-6" />
+          </a>
+        </div>
+        
+        <a href="mailto:contato@juniorlaunther.com" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm tracking-widest font-light">
+          <Mail className="w-4 h-4" />
+          contato@juniorlaunther.com
+        </a>
+
+        <div className="mt-4">
+          <img 
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbHvxQ7tlY7B1FqmtNGlbkU9jYXO-C64HzWl8Cj_nbVrFNfSoBO41bScQugBdNYkhcc6Pv5Cp4qfcKWcBiKtIzUi3TR2z8yT_6aQfFkDi2FntnBTO1YVWWVC9FXuzTGWtgaiH6cQAavMi99i89B6BeRQa0pX25BWIQh_1dxzCAE6C107kd4k0tR8yGwwE/w200-h89/LOGO%20-%20A%20casa%20do%20Ju%20-%20fundo%20transparente%20preto.png" 
+            alt="Logo A Casa do Ju" 
+            className="h-10 md:h-12 object-contain opacity-80 invert"
+          />
+        </div>
+      </FadeIn>
     </section>
   );
 }

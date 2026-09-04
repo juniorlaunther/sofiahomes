@@ -1,7 +1,7 @@
 import { FadeIn } from "../components/AnimatedText";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useState, useEffect } from "react";
-import { ChevronDown, Asterisk, Sparkles, ArrowRight, Camera, Coffee, Users, Image, Video, LayoutDashboard, ChevronRight, HandHeart, Play, Pause } from "lucide-react";
+import { ChevronDown, Asterisk, Sparkles, ArrowRight, Camera, Coffee, Users, Image, Video, LayoutDashboard, ChevronRight, HandHeart, Play, Pause, Home, Palette, Star } from "lucide-react";
 
 function ExpandableTopic({ title, desc, delay, isLight = false, defaultOpen = false, icon: Icon }: { title: string, desc: string, delay: number, isLight?: boolean, defaultOpen?: boolean, icon?: any }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -40,32 +40,32 @@ export function Possibilities() {
     {
       title: "LIFESTYLE",
       desc: "Rotina, manhãs, noites, refeições, trabalho, experiências e momentos cotidianos.",
-      img: "https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=2069&auto=format&fit=crop"
+      icon: Coffee
     },
     {
       title: "ENTRETENIMENTO",
       desc: "Humor, situações, narrativas, desafios e formatos com potencial de compartilhamento.",
-      img: "https://images.unsplash.com/photo-1543807535-eceef0bc6599?q=80&w=2070&auto=format&fit=crop"
+      icon: Play
     },
     {
       title: "CASA & DESIGN",
       desc: "Arquitetura, decoração, ambientes, funcionalidades e detalhes do espaço.",
-      img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
+      icon: Home
     },
     {
       title: "ARTE & CRIATIVIDADE",
       desc: "Conteúdos integrando o universo do Ateliê do Ju ao apartamento.",
-      img: "https://images.unsplash.com/photo-1499933374294-4584851497cc?q=80&w=2070&auto=format&fit=crop"
+      icon: Palette
     },
     {
       title: "FAMÍLIA & CONEXÕES",
       desc: "Experiências afetivas, encontros, comemorações e momentos reais.",
-      img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070&auto=format&fit=crop"
+      icon: Users
     },
     {
       title: "CONTEÚDO DE MARCA",
       desc: "Produções criadas especificamente para apresentar e valorizar o imóvel e a experiência de estar nele.",
-      img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop"
+      icon: Star
     }
   ];
 
@@ -96,11 +96,11 @@ export function Possibilities() {
   };
 
   return (
-    <section className="py-12 md:py-20 lg:py-24 bg-brand-light px-6 border-t border-brand-dark/10">
+    <section className="py-12 md:py-20 lg:py-24 bg-brand-light/80 md:bg-brand-purple/85 backdrop-blur-2xl px-6 border-t border-brand-dark/10 md:border-none transition-colors duration-500 relative z-10">
       <div className="max-w-7xl mx-auto">
         <FadeIn>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif max-w-4xl mb-8 md:mb-16 leading-tight">
-            Um espaço. <span className="italic text-brand-purple">Muitas possibilidades.</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif max-w-4xl mb-8 md:mb-16 leading-tight text-brand-dark md:text-brand-light">
+            Um espaço. <span className="italic text-brand-purple md:text-brand-light md:opacity-90">Muitas possibilidades.</span>
           </h2>
         </FadeIn>
 
@@ -137,27 +137,30 @@ export function Possibilities() {
           className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 pb-8 no-scrollbar -mx-6 px-6 md:mx-0 md:px-0"
           style={{ scrollSnapType: 'x mandatory' }}
         >
-          {territories.map((item, i) => (
-            <div key={i} className="min-w-[85vw] md:min-w-0 snap-center flex flex-col relative group bg-brand-purple md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none">
-              <div className="aspect-[4/3] md:aspect-square relative mb-4 md:mb-6 overflow-hidden bg-brand-dark/5 rounded-xl md:rounded-none">
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-brand-dark/10 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-0"></div>
-                <div className="absolute top-4 right-4 text-brand-light/90 font-serif text-3xl md:text-4xl lg:text-5xl drop-shadow-md">0{i+1}</div>
+          {territories.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div key={i} className="min-w-[85vw] md:min-w-0 snap-center">
+                <FadeIn delay={i * 0.1} className="h-full">
+                  <div className="h-full flex flex-col p-6 md:p-8 rounded-2xl bg-brand-purple md:bg-transparent md:border-l md:border-brand-light/20 group relative overflow-hidden text-left">
+                    <div className="flex items-center gap-4 mb-4 md:mb-6">
+                      <div className="w-12 h-12 rounded-full bg-brand-dark/10 md:bg-brand-light/10 flex items-center justify-center text-brand-light group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                        <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-serif text-brand-light mb-2 md:mb-3 tracking-tight group-hover:text-brand-light/80 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-brand-light/80 md:text-brand-light/70 font-light leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </FadeIn>
               </div>
-              <div>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-serif text-brand-light md:text-brand-dark mb-2 md:mb-3 tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="text-sm md:text-base text-brand-light/80 md:text-brand-dark/70 font-light leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

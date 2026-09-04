@@ -15,29 +15,48 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-[100dvh] w-full flex flex-col overflow-hidden bg-brand-dark text-brand-light">
-      <motion.div style={{ y, opacity }} className="absolute inset-0">
+      <div className="fixed inset-0 pointer-events-none z-0">
         <img 
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" 
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpwzp9hh0Sra19Z2piEsPDJEzyKCnhyJ8L103gDNochpVpTDitpQxxa5cyqrNHd-dDsXggkjqFfWqiIUeVs-qSQC6XWTFuQcUEy4Hs8Zl2ZNdCGCLfdaDGvPW953uY8BIoaaO3lkUSRrlVt_FLZ6rfM1sY2IYibIKZILPhkW4os6OfjK6cXfSFxOcrE6c/s1600/sala.png" 
           alt="Apartment Interior" 
           className="w-full h-full object-cover opacity-40 mix-blend-overlay"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark"></div>
-      </motion.div>
+      </div>
 
       <div className="relative z-10 max-w-6xl w-full mx-auto px-6 flex flex-col items-center text-center my-auto pt-20 pb-4">
         <FadeIn direction="none" delay={0.2}>
-          <p className="text-brand-purple uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-[10px] md:text-xs mb-4 md:mb-6 flex items-center gap-2 md:gap-3 justify-center">
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
-            Um projeto A Casa do Ju
-          </p>
+          <div className="flex justify-center mb-6 md:mb-10">
+            <img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbHvxQ7tlY7B1FqmtNGlbkU9jYXO-C64HzWl8Cj_nbVrFNfSoBO41bScQugBdNYkhcc6Pv5Cp4qfcKWcBiKtIzUi3TR2z8yT_6aQfFkDi2FntnBTO1YVWWVC9FXuzTGWtgaiH6cQAavMi99i89B6BeRQa0pX25BWIQh_1dxzCAE6C107kd4k0tR8yGwwE/w200-h89/LOGO%20-%20A%20casa%20do%20Ju%20-%20fundo%20transparente%20preto.png" 
+              alt="A Casa do Ju" 
+              className="h-8 md:h-10 object-contain invert opacity-90"
+            />
+          </div>
         </FadeIn>
         
-        <FadeIn delay={0.4}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-[0.9] mb-4 md:mb-8">
-            IMERSÃO<br />
-            <span className="italic font-light">DE CONTEÚDO</span>
-          </h1>
-        </FadeIn>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight leading-[0.9] mb-4 md:mb-8 flex flex-col items-center [perspective:1000px]">
+          <span className="block overflow-hidden pb-1 md:pb-3">
+            <motion.span
+              initial={{ y: "120%", opacity: 0, rotateX: -30, transformOrigin: "bottom" }}
+              animate={{ y: 0, opacity: 1, rotateX: 0 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              className="block"
+            >
+              IMERSÃO
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              initial={{ y: "120%", opacity: 0, rotateX: -30, transformOrigin: "bottom" }}
+              animate={{ y: 0, opacity: 1, rotateX: 0 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+              className="block italic"
+            >
+              DE CONTEÚDO
+            </motion.span>
+          </span>
+        </h1>
 
         <FadeIn delay={0.6} className="max-w-3xl">
           <p className="text-xl md:text-3xl lg:text-4xl font-serif italic mb-3 md:mb-6">
@@ -49,20 +68,21 @@ export function Hero() {
         </FadeIn>
       </div>
 
-      <motion.div 
+      <motion.a 
+        href="#proposal"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="relative z-10 flex flex-col items-center gap-1 md:gap-2 pb-6 md:pb-10 mt-auto"
+        className="relative z-10 flex flex-col items-center gap-1 md:gap-2 pb-6 md:pb-10 mt-auto hover:opacity-80 transition-opacity"
       >
-        <span className="text-xs uppercase tracking-widest text-brand-light/50">Descubra</span>
+        <span className="text-xs uppercase tracking-widest text-brand-light/50 font-bold">Ver Proposta</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
           <ArrowDown className="w-5 h-5 text-brand-purple" />
         </motion.div>
-      </motion.div>
+      </motion.a>
     </section>
   );
 }
@@ -75,9 +95,9 @@ export function Concept() {
           <div className="w-full md:w-5/12 order-2 md:order-1 relative">
             <FadeIn direction="right">
               <img 
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjDGb9t1PRLwrT1I4NXyIiCn0-sCd5gwfenJasVT_dxsiPmlOxEBWGYHJ1iNN4gR5pTh12tZNXW-obksc5_J-bqn0huM7mveWbqxdLsl47P7gUXaBOnsYA2nGDhGDFAJA_9mvM9x5ka20-pRYeQ1P0jJ1UCvHG7aTDnRWuqzjGbKDbtJbv8fwoepwoDBM/s1600/ajantar.png" 
                 alt="Lifestyle moment" 
-                className="w-full aspect-[4/5] object-cover"
+                className="w-full aspect-[4/5] object-cover object-left"
               />
             </FadeIn>
             <motion.div 
@@ -130,13 +150,6 @@ export function Concept() {
 export function Why() {
   return (
     <section className="pt-8 md:pt-12 pb-10 md:pb-14 lg:pb-16 px-6 bg-brand-light relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-5">
-        <img 
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" 
-          alt="Texture" 
-          className="w-full h-full object-cover mix-blend-multiply"
-        />
-      </div>
       <div className="max-w-7xl mx-auto relative z-10">
         <FadeIn>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif max-w-4xl mb-12 leading-tight">
