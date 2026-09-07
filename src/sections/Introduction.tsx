@@ -91,8 +91,8 @@ export function Hero() {
 
 export function Concept() {
   return (
-    <section className="pt-16 md:pt-24 lg:pt-32 pb-4 md:pb-8 px-6 bg-brand-light relative">
-      <div className="max-w-7xl mx-auto">
+    <section className="pt-16 md:pt-24 lg:pt-32 bg-brand-light relative">
+      <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-24">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
           <div className="w-full md:w-5/12 order-2 md:order-1 relative">
             <FadeIn direction="right">
@@ -132,16 +132,24 @@ export function Concept() {
             </FadeIn>
           </div>
         </div>
+      </div>
 
-        <div className="mt-8 md:mt-12 flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-12 relative z-10 w-full">
+      <div className="w-full relative py-16 md:py-24 overflow-hidden bg-brand-dark flex flex-col items-center justify-center">
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-purple/30 via-brand-dark to-brand-dark pointer-events-none"
+        />
+        
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12 lg:space-x-16 relative z-10 w-full px-6">
           <FadeIn direction="up" delay={0.1}>
-            <span className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-dark animate-pulse-text block leading-none transition-colors duration-500 cursor-default" style={{animationDelay: '0s'}}>VIVER</span>
+            <span className="text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-wider block leading-none transition-colors duration-500 cursor-default hover:text-brand-purple">VIVER</span>
           </FadeIn>
           <FadeIn direction="up" delay={0.3}>
-            <span className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-dark animate-pulse-text block leading-none transition-colors duration-500 cursor-default" style={{animationDelay: '1.3s'}}>CRIAR</span>
+            <span className="text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-wider block leading-none transition-colors duration-500 cursor-default hover:text-brand-purple">CRIAR</span>
           </FadeIn>
           <FadeIn direction="up" delay={0.5}>
-            <span className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-dark animate-pulse-text block leading-none transition-colors duration-500 cursor-default" style={{animationDelay: '2.6s'}}>COMPARTILHAR</span>
+            <span className="text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-wider block leading-none transition-colors duration-500 cursor-default hover:text-brand-purple">COMPARTILHAR</span>
           </FadeIn>
         </div>
       </div>

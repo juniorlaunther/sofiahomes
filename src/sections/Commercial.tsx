@@ -333,7 +333,7 @@ export function Ending() {
 
         <FadeIn delay={0.4} viewportMargin="0px">
           <motion.a
-            href="https://api.whatsapp.com/send?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20proposta%20da%20Casa%20do%20Ju"
+            href="https://wa.me/5519988508110"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
